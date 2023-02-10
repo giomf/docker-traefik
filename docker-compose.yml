@@ -9,7 +9,7 @@ services:
       - SERVICES
     restart: unless-stopped
     volumes:
-      - volumes/SERVICE_NAME/data:/data
+      - ./volumes/SERVICE_NAME/data:/data
     expose:
       - 9090
     networks:
