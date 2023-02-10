@@ -1,0 +1,8 @@
+version: '3.8'
+    
+networks: 
+  service-local-net:
+    name: service-local-net
+  service-proxy-net:
+    external: 
+      name: service-proxy-net
