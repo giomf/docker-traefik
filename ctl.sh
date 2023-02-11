@@ -1,5 +1,10 @@
 #!/bin/bash -e
 
+function init (){
+    echo "ERROR: init is not implemented for this service. Aborting!"
+    exit 1
+}
+
 if [[ -z "$1" || "$1" == "--help" ]]; then
     script_name="$(basename "$0")"
     echo "Control script for services"
@@ -31,8 +36,7 @@ elif [[ "$1" == "--init" ]]; then
         echo "ERROR: volumes already exists. Aborting!"
         exit 1
     else 
-        echo "ERROR: init is not implemented for this service. Aborting!"
-        exit 1
+        init
     fi
 else 
     echo "ERROR: Command $1 not found. Aborting!"
