@@ -39,6 +39,6 @@ and grouped in the *secrets* folder. An example for this is *service.secrets.exa
 
 ## Getting updates from template repo
 ```
-git remote add git@github.com:Giom-fm/docker-service.git
+git remote add template git@github.com:Giom-fm/docker-service.git
 git pull template main --allow-unrelated-histories
 ```
