@@ -2,7 +2,7 @@
 
 
 ## ctl.sh
-The ctl.sh script provides commandos that are useful to control the services
+The ctl.sh script provides commands that are useful to control the services
 ### Usage
 ```
 $ ./ctl.sh help
