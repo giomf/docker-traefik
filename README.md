@@ -9,8 +9,10 @@ Control script for services
 Usage: ctl.sh
         --start         Starts all services
         --stop          Stops all services
-        --restart       Restart all services
+        --soft-restart  Restart all services
+        --hard-restart  Stops and Starts all services
         --logs          Shows the docker logs
+        --status        Shows the service status
         --init          Initializes the volumes and copies configuration files to the volumes.
                         This is only needed the first time!
         --help          Shows this help page
@@ -36,3 +38,9 @@ and grouped in the *secrets* folder. An example for this is *service.secrets.exa
 ## Secrets
 Secrets should be created in a file that contains only the secrets for the corresponding service
 and grouped in the *secrets* folder. An example for this is *service.secrets.example*. Please note that the file permissions should be as restrictive as possible.
+
+## Getting updates from template repo
+```
+git remote add git@github.com:Giom-fm/docker-service.git
+git pull template main --allow-unrelated-histories
+```
