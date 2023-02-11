@@ -4,18 +4,18 @@
 The ctl.sh script provides commandos that are useful to control the services
 ### Usage
 ```
-$ ./ctl.sh 
+$ ./ctl.sh help
 Control script for services
 Usage: ctl.sh
-        --start         Starts all services
-        --stop          Stops all services
-        --soft-restart  Restart all services
-        --hard-restart  Stops and Starts all services
-        --logs          Shows the docker logs
-        --status        Shows the service status
-        --init          Initializes the volumes and copies configuration files to the volumes.
+        start           Starts all services
+        stop            Stops all services
+        restart         Restart all services
+        reset           Stops and Starts all services
+        logs            Shows the docker logs
+        status          Shows the services status
+        init            Initializes the volumes and copies configuration files to the volumes.
                         This is only needed the first time!
-        --help          Shows this help page
+        help            Shows this help page
 ```
 ### Init behavior
 
@@ -41,6 +41,6 @@ and grouped in the *secrets* folder. An example for this is *service.secrets.exa
 
 ## Getting updates from template repo
 ```
-git remote add git@github.com:Giom-fm/docker-service.git
+git remote add template git@github.com:Giom-fm/docker-service.git
 git pull template main --allow-unrelated-histories
 ```
