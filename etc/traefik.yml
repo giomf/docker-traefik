@@ -1,0 +1,47 @@
+# Logging
+log:
+  level: INFO
+  filePath: /logs/traefik.log
+  format: common
+accessLog:
+  filePath: /logs/access.log
+
+# Skip TLS verification between proxy and backend
+serversTransport:
+  insecureSkipVerify: true
+
+# API
+api:
+  dashboard: false
+  insecure: false
+
+# Entrypoints
+entryPoints:
+  web:
+    address: :80
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+          permanent: true
+  websecure:
+    address: :443
+
+# Providers
+providers:
+  docker:
+    watch: true
+    exposedByDefault: true
+  file:
+    watch: true
+    filename: /traefik-dynamic.yml
+
+# Cert sesolvers
+certificatesresolvers:
+  letsencrypt:
+    acme:
+      email: EMAIL_ADDRESS
+      storage: /letsencrypt/acme.json
+      httpChallenge:
+        entryPoint: web

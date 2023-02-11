@@ -1,32 +1,42 @@
-version: '3.8'
+version: "3.5"
   
-services: 
-
-  SERVICE:
-    image: SERVICE_IMAGE:${PROMETHEUS_TAG}
-    container_name: SERVICE_NAME
-    depends_on:
-      - SERVICES
+services:
+  traefik:
+    image: "traefik:${TRAEFIK_TAG}"
+    container_name: "traefik"
     restart: unless-stopped
-    volumes:
-      - ./volumes/SERVICE_NAME/data:/data
-    expose:
-      - 9090
     networks:
-      - SERVICE-local-net
-      - SERVICE-proxy-net
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.SERVICE.rule=Host(`${DOMAIN_NAME}`)"
-      - "traefik.http.routers.SERVICE.entrypoints=websecure"
-      - "traefik.http.routers.SERVICE.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.SERVICE.middlewares=SERVICE-hsts@docker"
-      - "traefik.http.middlewares.SERVICE-hsts.headers.customresponseheaders.Strict-Transport-Security=max-age=15552000; includeSubDomains"
-      - "traefik.docker.network=SERVICE-proxy-net"
+      - synapse-proxy-net
+      - nextcloud-proxy-net
+      - invoice-old-proxy-net
+      - invoice-proxy-net
+      - jfc-invoice-proxy-net
+      - monitoring-proxy-net
+    ports:
+      - "80:80"
+      - "443:443"
+    expose:
+      - 80
+      - 443
+      - 8080
+    volumes:
+      - "./volumes/traefik/letsencrypt:/letsencrypt"
+      - "./volumes/traefik/logs:/logs"
+      - "./volumes/traefik/etc/traefik.yml:/traefik.yml"
+      - "./volumes/traefik/etc/traefik-dynamic.yml:/traefik-dynamic.yml"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
-networks: 
-  SERVICE-local-net:
-    name: SERVICE-local-net
-  SERVICE-proxy-net:
-    external: 
-      name: SERVICE-proxy-net
+networks:
+  synapse-proxy-net:
+    name: synapse-proxy-net
+  nextcloud-proxy-net:
+    name: nextcloud-proxy-net
+  invoice-proxy-net:
+    name: invoice-proxy-net
+  invoice-old-proxy-net:
+    name: invoice-old-proxy-net
+  jfc-invoice-proxy-net:
+    name: jfc-invoice-proxy-net
+  monitoring-proxy-net:
+    name: monitoring-proxy-net
+
