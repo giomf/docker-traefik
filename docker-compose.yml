@@ -6,7 +6,7 @@ services:
     container_name: "traefik"
     restart: unless-stopped
     networks:
-      - synapse-proxy-net
+      - matrix-proxy-net
       - nextcloud-proxy-net
       - invoice-old-proxy-net
       - invoice-proxy-net
@@ -27,8 +27,8 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
 networks:
-  synapse-proxy-net:
-    name: synapse-proxy-net
+  matrix-proxy-net:
+    name: matrix-proxy-net
   nextcloud-proxy-net:
     name: nextcloud-proxy-net
   invoice-proxy-net:
