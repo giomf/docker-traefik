@@ -12,9 +12,9 @@ if [[ -z "$1" || "$1" == "--help" ]]; then
     echo -e "\t--start\t\tStarts all services"
     echo -e "\t--stop\t\tStops all services"
     echo -e "\t--soft-restart\tRestart all services"
-    echo -e "\t--hard-restart\Stops and Starts all services"
+    echo -e "\t--hard-restart\tStops and Starts all services"
     echo -e "\t--logs\t\tShows the docker logs"
-    echo -e "\t--status\t\tShows the docker logs"
+    echo -e "\t--status\tShows the service status"
     echo -e "\t--init\t\tInitializes the volumes and copies configuration files to the volumes.\n\t\t\tThis is only needed the first time!"
     echo -e "\t--help\t\tShows this help page"
     

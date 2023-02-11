@@ -10,8 +10,10 @@ Control script for services
 Usage: ctl.sh
         --start         Starts all services
         --stop          Stops all services
-        --restart       Restart all services
+        --soft-restart  Restart all services
+        --hard-restart  Stops and Starts all services
         --logs          Shows the docker logs
+        --status        Shows the service status
         --init          Initializes the volumes and copies configuration files to the volumes.
                         This is only needed the first time!
         --help          Shows this help page
