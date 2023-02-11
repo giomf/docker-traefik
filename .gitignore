@@ -3,4 +3,4 @@
 *.secrets
 volumes/
 secrets/*
-!secrets/service.secrets.example
+!secrets/*.secrets.example
