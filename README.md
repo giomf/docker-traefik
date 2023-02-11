@@ -34,3 +34,9 @@ The versioning of the services as well as the domain name settings are done via 
 ## Secrets
 Secrets should be created in a file that contains only the secrets for the corresponding service
 and grouped in the *secrets* folder. An example for this is *service.secrets.example*. Please note that the file permissions should be as restrictive as possible.
+
+## Getting updates from template repo
+```
+git remote add git@github.com:Giom-fm/docker-service.git
+git pull template main --allow-unrelated-histories
+```
