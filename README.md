@@ -1,12 +1,15 @@
 # docker-traefik
 
 ## ctl.sh
-The ctl.sh script provides commandos that are useful to control the services
+The ctl.sh script provides commands that are useful to control the services
 ### Usage
 ```
 $ ./ctl.sh help
-Control script for services
-Usage: ctl.sh
+Control script for docker-compose services
+
+Usage: ctl.sh <command>
+
+Commands:
         start           Starts all services
         stop            Stops all services
         restart         Restart all services
@@ -19,10 +22,10 @@ Usage: ctl.sh
 ```
 ### Init behavior
 
-The behavior of the *--init* command varies from service to service. This behavior must be adjusted in *ctl.sh* depending on the service. Otherwise, an error message appears when executing the init command. The use case for initializing is to create the volumes and copy configuration files from etc into them so that they can be edited afterwards.
+The behavior of the *init* command varies from service to service. This behavior must be adjusted in *ctl.sh* depending on the service. Otherwise, an error message appears when executing the init command. The use case for initializing is to create the volumes and copy configuration files from etc into them so that they can be edited afterwards.
 
 ## Service configuration values that need to be adjusted 
-After executing the *--init* command, the configuration files must be adjusted in most cases. This should only happen in the volumes folder and not in the etc folder. Otherwise, sensitive data may be pushed upstream.  
+After executing the *init* command, the configuration files must be adjusted in most cases. This should only happen in the volumes folder and not in the etc folder. Otherwise, sensitive data may be pushed upstream.  
 The following table gives an overview of which files must be adjusted.
 
 | Value         | File        |

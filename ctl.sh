@@ -10,8 +10,9 @@ function init (){
 
 if [[ -z "$1" || "$1" == "help" ]]; then
     script_name="$(basename "$0")"
-    echo "Control script for services"
-    echo "Usage: ${script_name}"
+    echo -e "Control script for docker-compose services\n"
+    echo -e "Usage: ${script_name} <command>\n"
+    echo "Commands:"
     echo -e "\tstart\t\tStarts all services"
     echo -e "\tstop\t\tStops all services"
     echo -e "\trestart\t\tRestart all services"
