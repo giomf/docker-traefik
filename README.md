@@ -6,8 +6,11 @@ The ctl.sh script provides commands that are useful to control the services
 ### Usage
 ```
 $ ./ctl.sh help
-Control script for services
-Usage: ctl.sh
+Control script for docker-compose services
+
+Usage: ctl.sh <command>
+
+Commands:
         start           Starts all services
         stop            Stops all services
         restart         Restart all services
