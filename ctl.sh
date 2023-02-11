@@ -23,7 +23,7 @@ elif [[ "$1" == "--hard-restart" ]]; then
     docker-compose down && docker-compose up -d
 elif [[ "$1" == "--logs" ]]; then
     docker-compose logs -f
-elif [[ "$1" == "--stats" ]]; then
+elif [[ "$1" == "--status" ]]; then
     docker-compose ps
 elif [[ "$1" == "--init" ]]; then
 
