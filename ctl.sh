@@ -9,6 +9,7 @@ if [[ -z "$1" || "$1" == "--help" ]]; then
     echo -e "\t--soft-restart\tRestart all services"
     echo -e "\t--hard-restart\Stops and Starts all services"
     echo -e "\t--logs\t\tShows the docker logs"
+    echo -e "\t--stats\t\tShows the docker logs"
     echo -e "\t--init\t\tInitializes the volumes and copies configuration files to the volumes.\n\t\t\tThis is only needed the first time!"
     echo -e "\t--help\t\tShows this help page"
     
@@ -22,6 +23,8 @@ elif [[ "$1" == "--hard-restart" ]]; then
     docker-compose down && docker-compose up -d
 elif [[ "$1" == "--logs" ]]; then
     docker-compose logs -f
+elif [[ "$1" == "--stats" ]]; then
+    docker-compose ps
 elif [[ "$1" == "--init" ]]; then
 
     if [[ -d volumes/ ]]; then
