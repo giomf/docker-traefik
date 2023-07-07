@@ -12,6 +12,8 @@ services:
       - invoice-proxy-net
       - jfc-invoice-proxy-net
       - monitoring-proxy-net
+      - noops-proxy-net
+      - fotobox-proxy-net
     ports:
       - "80:80"
       - "443:443"
@@ -39,4 +41,8 @@ networks:
     name: jfc-invoice-proxy-net
   monitoring-proxy-net:
     name: monitoring-proxy-net
+  noops-proxy-net:
+    name: noops-proxy-net
+  fotobox-proxy-net:
+    name: fotobox-proxy-net
 
